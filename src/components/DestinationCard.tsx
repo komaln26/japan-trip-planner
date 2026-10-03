@@ -1,6 +1,6 @@
 import type { Destination } from "../types"
 import { formatCost, formatDuration } from "../utils/calculateCost"
-import { categoryColours } from "../utils/categoryStyles"
+import { categoryColours, categoryImages } from "../utils/categoryStyles"
 
 interface DestinationCardProps {
     destination: Destination
@@ -11,9 +11,18 @@ interface DestinationCardProps {
 const DestinationCard = ({ destination, isSaved, onToggleSave }: DestinationCardProps) => {
     const category = destination.category.charAt(0).toUpperCase() + destination.category.slice(1)
     const colour = categoryColours[destination.category]
+    const image = destination.imageUrl || categoryImages[destination.category]
     return (
         <article className="overflow-hidden rounded-xl border border-gray-200 bg-white">
             <div className={`relative h-28 ${colour}`}>
+                {image && (
+                    <img
+                        src={image}
+                        alt=""
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                    />
+                )}
                 <button className={`absolute top-3 right-3 rounded-full ${isSaved ? 'bg-amber-300' : 'bg-white/90'} px-3 py-1 text-xs font-medium`} type="button" onClick={() => onToggleSave(destination.id)}>{isSaved ? 'Saved' : 'Save'}</button>
                 <span className="absolute bottom-3 right-3 rounded-full bg-white/90 px-2.5 py-0.5 text-xs font-medium text-gray-700">{category}</span>
             </div>

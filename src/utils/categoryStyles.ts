@@ -6,3 +6,12 @@ export const categoryColours: Record<string, string> = {
     nightlife: 'bg-purple-100',
     shopping: 'bg-indigo-100'
 }
+
+export const categoryImages: Record<string, string> = {
+    culture: '/images/categories/culture.svg',
+    temple: '/images/categories/temple.svg',
+    nature: '/images/categories/nature.svg',
+    food: '/images/categories/food.svg',
+    nightlife: '/images/categories/nightlife.svg',
+    shopping: '/images/categories/shopping.svg'
+}
