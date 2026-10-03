@@ -1,75 +1,58 @@
-# React + TypeScript + Vite
+# Japan Trip Planner 🗾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app for planning trips to Japan: explore destinations and build your itinerary.
 
-Currently, two official plugins are available:
+**Live demo:** https://japan-trip-planner-beta.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Browse 24 attractions across Shizuoka, Hiroshima and Nagoya
+- Destination cards with category, cost, duration and description
+- Save and unsave places, kept after a page refresh (custom `useLocalStorage` hook)
+- Responsive layout for mobile, tablet and desktop
+- Accessible, keyboard-friendly controls
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## In progress
 
-## Expanding the ESLint configuration
+- Navbar with active-page highlighting
+- Saved places page
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Roadmap
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [ ] Filter by city and category, and search by name
+- [ ] Day-by-day itinerary builder
+- [ ] Trip cost total
+- [ ] Unit tests for the formatting and cost helpers (Vitest)
+- [ ] Map view and drag-and-drop itinerary editing (v2)
+- [ ] Deployment
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech stack
+- **React 19** with **TypeScript**
+- **React Router 7** for client-side routing
+- **Vite** for dev server and builds
+- **Tailwind CSS 4** for styling
+- **ESLint** (typescript-eslint, react-hooks) for linting
+- Deployed on **Vercel**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting started
 
+```bash
+git clone https://github.com/komaln26/japan-trip-planner.git
+cd japan-trip-planner
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+The app runs at the local URL Vite prints (usually http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run build` | Type-check and create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
 
-```
+## Notes
+Prices and opening details are approximate and may be out of date. Check official sources before travelling.
