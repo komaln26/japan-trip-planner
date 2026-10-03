@@ -14,7 +14,7 @@ const ExplorePage = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map((d) => (
                 <DestinationCard key={d.id} destination={d} isSaved={savedIds.includes(d.id)} onToggleSave={toggleSave} />
             ))}
