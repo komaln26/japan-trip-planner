@@ -8,11 +8,14 @@ const ExplorePage = () => {
 
     const [savedIds, setSavedIds] = useLocalStorage<string[]>('saved-ids', [])
     const [selectedCity, setSelectedCity] = useState('All')
+    const [selectedCategory, setSelectedCategory] = useState('All')
     const [query, setQuery] = useState('')
+    const categories = ['All', 'Culture', 'Temple', 'Nature', 'Food', 'Shopping', 'Nightlife']
     const cities = ['All', 'Shizuoka', 'Hiroshima', 'Nagoya']
     const visibleDestinations = destinations.filter(
         (d) =>
             (selectedCity === 'All' || d.city === selectedCity) &&
+            (selectedCategory === 'All' || d.category === selectedCategory.toLowerCase()) &&
             d.name.toLowerCase().includes(query.toLowerCase())
     )
     const toggleSave = (id: string) => {
@@ -39,6 +42,12 @@ const ExplorePage = () => {
             <div className="flex flex-wrap gap-2">
                 {cities.map((city) => (
                     <FilterPill key={city} label={city} isActive={selectedCity === city} onClick={() => setSelectedCity(city)} />
+                ))}
+
+            </div>
+            <div className="flex flex-wrap gap-2 mt-2">
+                {categories.map((category) => (
+                    <FilterPill key={category} label={category} isActive={selectedCategory === category} onClick={() => setSelectedCategory(category)} />
                 ))}
 
             </div>
