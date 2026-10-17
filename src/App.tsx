@@ -15,7 +15,7 @@ function App() {
           <Route path='/itinerary' element={<ItineraryPage />}></Route>
           <Route path='/saved' element={<SavedPage />}></Route>
         </Routes>
-      </BrowserRouter >
+      </BrowserRouter>
       <Analytics
         beforeSend={(event) =>
           localStorage.getItem('skip-analytics') === 'true' ? null : event
